@@ -1,0 +1,43 @@
+
+
+
+<nav class="navbar navbar-expand-lg " style="background-color: #7e7e7e;">
+    <a *ngIf="currentUser" class="navbar-brand" routerLink="/usersdetails/{{currentUser.id}}">{{currentUser.nameSurname}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExample05">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/users">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/usersdetails/{{currentUserId}}/update">Edit My Infromations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/usersdetails/{{currentUserId}}/messages">Taleplerim</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdown05">
+            <a class="dropdown-item" routerLink=" usersdetails/{{currentUserId}}/update" >Bilgilerimi Güncelle</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+      
+      <form *ngIf="!isAuthanticated()" #loginForm="ngForm" (ngSubmit)="login()" class="form-inline my-2 my-md-0">
+        <input class="form-control" name="userName" [(ngModel)]="loginUser.nameSurname" type="text" required placeholder="User Name">
+        <input class="form-control" name="password" type="password" [(ngModel)]="loginUser.password" required placeholder="Password">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit" >Login</button>
+      </form>
+    </div>
+    
+    <button *ngIf="isAuthanticated()" class="btn btn-secondary my-2 my-sm-0" (click)="logout()" routerLink="/"> Logout</button>
+  </nav>

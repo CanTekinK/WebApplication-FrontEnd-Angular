@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+<main *ngIf="isAuthenticated()"  role="main" class="container">
+    <h2 class="mt-3 pt-3">Kullanıcı Bilgileri Güncelleme Sayfası</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <form  (ngSubmit)="update()">
+                
+                <div class="form-group">
+                    User Name
+                    <input type="text" id="nameSurname" name="update1"  [(ngModel)]="userRegister.nameSurname" class="form-control" autofocus>
+                    
+
+                </div>
+                <div class="form-group">
+                    Email
+                    <input type="text" id="email"  name="update2"class="form-control" [(ngModel)]="userRegister.email"  autofocus>
+                    
+                </div>
+                <div class="form-group">
+                    PhoneNumber
+                    <input type="text" id="phoneNumber"  name="update3" class="form-control" [(ngModel)]="userRegister.phoneNumber"   autofocus>
+                    
+
+                </div>
+
+
+
+
+
+
+
+                
+                
+                <div><button type="submit" class="btn btn-lg btn-primary btn-block" >Update</button></div>
+       
+                
+                
+
+            </form>
+
+        </div>
+        <div class="col-md-6">
+            <form  (ngSubmit)="updatePassword()">
+                <div class="form-group">
+                    Current Password
+                    <input type="password" id="currentPassword" name="currentPassword"  [(ngModel)]="newPassword.currentPassword" class="form-control" autofocus>
+                    
+
+                </div>
+                <div class="form-group">
+                    New Password
+                    <input type="password" id="newPassword" name="newPassword"  [(ngModel)]="newPassword.newPassword" class="form-control" autofocus>
+                    <span class="help-block" *ngIf="authOfControl()==false">
+                        Password is required!
+                    </span>
+                    
+
+                </div>
+                <div class="form-group">
+                    New Password Again
+                    <input type="password" id="AuthnewPassword" name="AuthnewPassword"  [(ngModel)]="authNewPassword" class="form-control" autofocus>
+                    <span class="help-block" *ngIf="authOfControl()==false">
+                        Password is required!
+                    </span>
+                    
+
+                </div>
+                <div><button type="submit" class="btn btn-lg btn-primary btn-block" >Update Password</button></div>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2 class="mt-3 pt-3">Resim Yükleyin</h2>
+    <app-photoupload ></app-photoupload>
+    
+</main>
+

@@ -1,0 +1,51 @@
+
+
+<html>
+
+
+<main role="main">
+    <div class="container">
+        <div class="row">
+            <form [formGroup]="userAddForm" (ngSubmit)="add()" class="">
+                <h2 class="mt-3 pt-3">User Register Page</h2>
+                <div class="form-group">
+                    <input type="text" id="nameSurname" formControlName="nameSurname" class="form-control" placeholder="User Name" autofocus>
+                    <span class="help-block" *ngIf="userAddForm.get('nameSurname').hasError('required') && userAddForm.get('nameSurname').touched">
+                        User name is required!
+                    </span>
+
+                </div>
+                <div class="form-group">
+                    <input type="text" id="email" formControlName="email" class="form-control" placeholder="Email" autofocus>
+                    <span class="help-block" *ngIf="userAddForm.get('email').hasError('required') && userAddForm.get('email').touched">
+                        Email is required!
+                    </span>
+
+                </div>
+                <div class="form-group">
+                    <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control" placeholder="PhoneNumber" autofocus>
+                    <span class="help-block" *ngIf="userAddForm.get('phoneNumber').hasError('required') && userAddForm.get('phoneNumber').touched">
+                        Email is required!
+                    </span>
+
+                </div>
+                <div class="form-group">
+                    <input type="text" id="password" formControlName="password" class="form-control" placeholder="Password" autofocus>
+                    <span class="help-block" *ngIf="userAddForm.get('password').hasError('required') && userAddForm.get('password').touched">
+                        Password is required!
+                    </span>
+
+                </div>
+                <div><button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!userAddForm.valid">Add</button></div>
+                <h6>{{userAddForm.value|json}}</h6>
+                <h6>{{userAddForm.status|json}}</h6>
+                
+                
+
+            </form>
+
+        </div>
+
+    </div>
+</main>
+</html>

@@ -1,0 +1,37 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://www.pngitem.com/pimgs/m/150-1503941_user-windows-10-user-icon-png-transparent-png.png" id="icon" alt="User Icon" />
+    </div>
+
+
+
+    <!-- Login Form -->
+    <form #loginForm="ngForm" (ngSubmit)="login()"> 
+      <input type="text" id="login" class="fadeIn second" name="login" [(ngModel)]="loginUser.nameSurname"  placeholder="Name Surname">
+      <input type="password" id="password" class="fadeIn third" name="login" [(ngModel)]="loginUser.password" placeholder="Password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+      <input type="button" routerLink="/users/add" class="fadeIn fourth" value="Sign Up">
+
+    </form>
+    <mat-spinner class="container" [color]="color" *ngIf="isSpinnerExist()" ></mat-spinner>
+
+
+
+    
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
+

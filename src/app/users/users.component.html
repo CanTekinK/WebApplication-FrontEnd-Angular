@@ -1,0 +1,28 @@
+
+<html >
+  <app-navbar *ngIf="isOnline()"></app-navbar>
+
+<div >
+<div class="row ">
+<div *ngFor="let user of users" class="col-md-4">
+    <div class="card mb-4 shadow-sm"  >
+    
+
+        <img class="bd-placeholder-img card-img-top" src="{{user.url}}"  style="height: 300px; width: 580px" alt="Card image cap"  onerror="this.src='https://www.loscanis.com.tr/wp-content/uploads/user.png';">
+   
+      <div class="card-body">
+        <p class="card-text">{{user.nameSurname}}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a  type="button" routerLink="/usersdetails/{{user.id}}" class="btn btn-success">View</a>
+           
+          </div>
+          <small class="text-muted">9 mins</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</html>

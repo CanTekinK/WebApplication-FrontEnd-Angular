@@ -1,0 +1,51 @@
+<style>
+    .form-userPhotoAdd {
+        width: 100%;
+        max-width: 660px;
+        padding: 15px;
+        margin: auto;
+
+    }
+</style>
+
+<app-navbar ></app-navbar>
+
+
+
+
+<main *ngIf="isOnline()" role="main" class="container">
+    <div class="row">
+        <div class="col-xl-5">
+            <h2 class="mt-3 pt-3">Fotoğraflar</h2>
+            <ngx-gallery *ngIf="galleryImages " [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+
+
+
+        </div>
+        <div *ngIf="user" class="col-lg-4">
+            <h2 class="mt-3 pt-3">Bilgiler</h2>
+            User Name : {{user.nameSurname}}
+            <br>
+            Contact
+            <br>
+            Phone Number : {{user.phoneNumber}}
+            <br>
+            Email : {{user.email}}
+            <br>
+            <button class="btn btn-success btn-s" *ngIf="isAuthenticated()" routerLink="/usersdetails/{{user.id}}/update">Edit</button>
+
+
+        </div>
+        
+
+
+    </div>
+    
+
+
+</main>
+
+
+
+
+
